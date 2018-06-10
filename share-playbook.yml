@@ -1,0 +1,9 @@
+- hosts: share
+  strategy: debug
+  debugger: always
+  roles:
+   - name: uchida.octopass
+     tags: octopass
+     become: yes
+     vars:
+       octopass_team: all

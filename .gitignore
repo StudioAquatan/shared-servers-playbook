@@ -1,0 +1,5 @@
+.DS_Store
+.ansible-vault-pass
+*.log
+*.retry
+id_rsa
