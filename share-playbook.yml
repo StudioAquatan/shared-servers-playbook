@@ -1,8 +1,11 @@
 - hosts: share
   debugger: on_failed
   roles:
-   - name: uchida.octopass
-     tags: octopass
-     become: yes
-     vars:
-       octopass_team: all
+    - name: uchida.octopass
+      tags: octopass
+      become: yes
+      vars:
+        octopass_team: all
+
+    - name: docker
+      tags: docker
