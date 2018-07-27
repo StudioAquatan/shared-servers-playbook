@@ -1,4 +1,6 @@
 octopass_token: '{{ vault_octopass_token }}'
 octopass_organization: StudioAquatan
 octopass_home: '/home/%s'
-octopass_sharedusers: '["deploy"]'
+octopass_sharedusers:
+  - deploy
+octopass_cache: 300

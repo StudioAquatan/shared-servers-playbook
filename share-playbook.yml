@@ -1,6 +1,5 @@
 - hosts: share
-  strategy: debug
-  debugger: always
+  debugger: on_failed
   roles:
    - name: uchida.octopass
      tags: octopass
