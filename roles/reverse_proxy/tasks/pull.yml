@@ -1,0 +1,7 @@
+---
+- name: "'{{ reverse_proxy_pull_image.image }}' is up-to-date"
+  docker_image:
+    name: "{{ reverse_proxy_pull_image.image }}"
+    tag: "{{ reverse_proxy_pull_image.tag }}"
+    force: yes
+  register: reverse_proxy_pulled

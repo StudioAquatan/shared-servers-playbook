@@ -1,0 +1,19 @@
+---
+reverse_proxy_nginx:
+  image: nginx
+  tag: 1.15-alpine
+  options:
+    log_max_size: 10m
+    log_max_file: 3
+
+reverse_proxy_docker_gen:
+  image: jwilder/docker-gen
+  tag: 0.7.3
+
+reverse_proxy_lets_encrypt:
+  image: jrcs/letsencrypt-nginx-proxy-companion
+  tag: v1.9.1
+
+reverse_proxy_network: proxy
+
+reverse_proxy_tmpl_dir: /opt/docker-gen
