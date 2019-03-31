@@ -1,0 +1,9 @@
+---
+- hosts: share
+  become: yes
+  roles:
+    - name: prerequisites
+      tags: prerequire
+
+    - name: reverse_proxy
+      tags: reverse_proxy
