@@ -1,0 +1,13 @@
+---
+- hosts: share
+  debugger: on_failed
+  become: yes
+  roles:
+    - name: etc_hosts
+      tags: host
+
+    - name: pddg.octopass
+      tags: octopass
+
+    - name: geerlingguy.docker
+      tags: docker

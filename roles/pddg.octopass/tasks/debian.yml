@@ -4,6 +4,7 @@
   apt:
     name: apt-transport-https
     state: present
+    cache_valid_time: 3600
     update_cache: yes
 
 - name: import linyows/octopass key
@@ -16,12 +17,17 @@
   template:
     src: linyows_octopass.list
     dest: /etc/apt/sources.list.d/linyows_octopass.list
+  register: octopass_apt_list
+
+- name: Update cache
+  apt:
+    update_cache: yes
+  when: octopass_apt_list.changed
 
 - name: install octopass
   apt:
     name: octopass
     state: present
-    update_cache: yes
 
 - name: configure octopass
   template:
@@ -70,9 +76,3 @@
     - {line: 'auth requisite pam_exec.so quiet expose_authtok /usr/bin/octopass pam', state: 'present'}
     - {line: 'auth optional pam_unix.so not_set_pass use_first_pass nodelay', state: 'present'}
     - {line: 'session required pam_mkhomedir.so skel: /etc/skel/ umask: 0022', state: 'present'}
-
-- name: allow users to use sudo without password
-  lineinfile:
-    create: yes
-    path: '/etc/sudoers.d/{{ octopass_team }}'
-    line: '%{{ octopass_team }} ALL=(ALL) NOPASSWD: ALL'

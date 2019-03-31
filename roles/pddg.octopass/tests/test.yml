@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    octopass_token: "{{ lookup('env', 'OCTOPASS_TOKEN') }}"
+    octopass_organization: "{{ lookup('env', 'OCTOPASS_ORGANIZATION') }}"
+    octopass_team: "all"
+    octopass_home: "/home/%s"
+    octopass_sharedusers:
+      - deploy
+    octopass_cache: 300
+    octopass_syslog: no
+  roles:
+    - ../../.

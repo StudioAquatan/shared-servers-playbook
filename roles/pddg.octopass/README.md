@@ -1,8 +1,10 @@
-uchida.octopass
+pddg.octopass
 ===============
 
 ansible role to install [octopass](https://github.com/linyows/octopass),
 management linux user and authentication with the organization/team on Github.
+
+This role was forked from https://github.com/uchida/ansible-octopass-role .
 
 Role Variables
 --------------

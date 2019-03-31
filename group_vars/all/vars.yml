@@ -1,6 +1,11 @@
+---
 octopass_token: '{{ vault_octopass_token }}'
 octopass_organization: StudioAquatan
+octopass_team: all
 octopass_home: '/home/%s'
 octopass_sharedusers:
   - deploy
 octopass_cache: 300
+
+etc_hosts_use_static_ip: yes
+etc_hosts_use_dns_suffix: aquatan.studio
